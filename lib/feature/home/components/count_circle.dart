@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class CountCircle extends StatelessWidget {
   const CountCircle({
-    Key? key,
+    super.key,
     required this.image,
     this.count = 0,
     this.imageRadius = 0,
     this.countColor,
-  }) : super(key: key);
+  });
 
   final ImageProvider image;
   final int count;

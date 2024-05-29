@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class ReminderItemGeneral extends StatelessWidget {
   const ReminderItemGeneral({
-    Key? key,
+    super.key,
     this.title = '',
     this.subtitle = '',
     this.body = '',
     this.cta = '',
     this.ctaStyle,
     this.image,
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;

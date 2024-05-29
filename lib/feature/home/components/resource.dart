@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class Resource extends StatelessWidget {
   const Resource({
-    Key? key,
+    super.key,
     required this.icon,
     this.title = '',
     this.iconSize = 20,
-  }) : super(key: key);
+  });
 
   final String title;
   final Widget icon;

@@ -6,7 +6,7 @@ import 'section/section.dart';
 import 'section/section_column.dart';
 
 class MoreResources extends StatelessWidget {
-  const MoreResources({Key? key}) : super(key: key);
+  const MoreResources({super.key});
 
   @override
   Widget build(BuildContext context) {

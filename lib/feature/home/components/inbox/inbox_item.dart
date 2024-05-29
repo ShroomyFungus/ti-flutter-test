@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 class InboxItem extends StatelessWidget {
   const InboxItem({
-    Key? key,
+    super.key,
     required this.image,
     this.count = 0,
     this.title = '',
     this.subtitle = '',
     this.imageRadius = 20,
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;

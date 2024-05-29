@@ -7,17 +7,17 @@ import 'package:flutter/material.dart';
 import 'components/reminders/reminders.dart';
 
 class HomeScreenAlternative extends StatelessWidget {
-  const HomeScreenAlternative({Key? key}) : super(key: key);
+  const HomeScreenAlternative({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Image.asset('images/background.png'),
-        SingleChildScrollView(
+        const SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               SizedBox(height: 24),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),

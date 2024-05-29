@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class LinkSection extends StatelessWidget {
   const LinkSection({
-    Key? key,
+    super.key,
     required this.icon,
     this.title = '',
     this.subtitle = '',
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;

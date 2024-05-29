@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class ReminderItemBilling extends StatelessWidget {
   const ReminderItemBilling({
-    Key? key,
+    super.key,
     this.title = '',
     this.subtitle = '',
     this.body = '',
     this.cta = '',
     this.ctaStyle,
     this.dueDate = '',
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;

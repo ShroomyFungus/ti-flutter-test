@@ -12,8 +12,15 @@ import '../home/home_screen_alternative.dart';
 
 class MainScreen extends StatefulWidget {
   static String routeName = '/';
+  final List<FocusNode> focusNodes;
+  final Function showOnboarding;
+  final ScrollController scrollController;
 
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen(
+      {super.key,
+      required this.focusNodes,
+      required this.showOnboarding,
+      required this.scrollController});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -21,6 +28,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late MainBloc _mainBloc;
+  GlobalKey? closeKey = GlobalKey();
 
   @override
   void initState() {
@@ -75,6 +83,25 @@ class _MainScreenState extends State<MainScreen> {
               onTap: () => _mainBloc.add(
                 MainEvent.changeDashboard(
                     fullDashboard: !_mainBloc.state.defaultVersion),
+              ),
+            ),
+            //Onboarding button
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextButton(
+                onPressed: () {
+                  setState(() {
+                    widget.showOnboarding();
+                    Navigator.of(context).pop();
+                  });
+                },
+                style: Theme.of(context).textButtonTheme.style?.copyWith(
+                      backgroundColor: MaterialStatePropertyAll(
+                          Theme.of(context).colorScheme.background),
+                      foregroundColor: MaterialStatePropertyAll(
+                          Theme.of(context).colorScheme.primary),
+                    ),
+                child: const Text("Show Onboarding"),
               ),
             ),
           ],
@@ -133,13 +160,6 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: ExpandableFab(
         type: ExpandableFabType.up,
         distance: 64,
-        expandedFabSize: ExpandableFabSize.regular,
-        closeButtonStyle: ExpandableFabCloseButtonStyle(
-          child: const Icon(Icons.add_rounded),
-          backgroundColor: context.colorScheme.primary,
-        ),
-        backgroundColor: context.colorScheme.primary,
-        child: const Icon(Icons.add_rounded),
         children: [
           FloatingActionButton.extended(
             icon: Image.asset(
@@ -194,7 +214,10 @@ class _MainScreenState extends State<MainScreen> {
     switch (_mainBloc.state.index) {
       case 0:
         return _mainBloc.state.defaultVersion
-            ? const HomeScreen()
+            ? HomeScreen(
+                focusNodes: widget.focusNodes,
+                scrollController: widget.scrollController,
+              )
             : const HomeScreenAlternative();
       case 1:
         return const AppointmentScreen();

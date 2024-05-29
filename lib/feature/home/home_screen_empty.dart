@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:chrconnecthpdraft/feature/app/extension/context.dart';
 
 class HomeScreenEmpty extends StatelessWidget {
-  const HomeScreenEmpty({Key? key}) : super(key: key);
+  const HomeScreenEmpty({super.key});
 
   static const double cardsViewportFraction = 0.9;
 

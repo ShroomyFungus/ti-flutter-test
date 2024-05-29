@@ -5,10 +5,10 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SectionRow extends StatelessWidget {
   const SectionRow({
-    Key? key,
+    super.key,
     this.viewportFraction = 0.9,
     required this.children,
-  }) : super(key: key);
+  });
 
   final double viewportFraction;
   final List<Widget> children;

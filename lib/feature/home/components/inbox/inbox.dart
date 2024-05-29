@@ -8,9 +8,9 @@ import 'inbox_item.dart';
 
 class Inbox extends StatelessWidget {
   const Inbox({
-    Key? key,
+    super.key,
     this.verticalLayout = false,
-  }) : super(key: key);
+  });
 
   final bool verticalLayout;
 

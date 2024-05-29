@@ -2,7 +2,7 @@ import 'package:chrconnecthpdraft/feature/app/extension/context.dart';
 import 'package:flutter/material.dart';
 
 class BillingScreen extends StatelessWidget {
-  const BillingScreen({Key? key}) : super(key: key);
+  const BillingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

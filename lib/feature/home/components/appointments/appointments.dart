@@ -7,10 +7,12 @@ import '../section/section_row.dart';
 import 'appointments_item.dart';
 
 class Appointments extends StatelessWidget {
+  final List<FocusNode>? focusNodes;
   const Appointments({
-    Key? key,
+    super.key,
     this.verticalLayout = false,
-  }) : super(key: key);
+    this.focusNodes,
+  });
 
   final bool verticalLayout;
 
@@ -55,13 +57,15 @@ class Appointments extends StatelessWidget {
 
   Widget _sectionLayoutContent() {
     var children = [
+      //hererere
       AppointmentsItem(
         date: DateTime.now(),
         duration: const Duration(minutes: 30),
         title: "Counselling Session",
         subtitle: "Dr. Gregory House",
         place: 'LMC Optometry & Eye Care',
-        cta: "Join virtual visit",
+        cta: Focus(
+            focusNode: focusNodes![3], child: const Text("Join virtual visit")),
         image: Image.asset('images/house.png').image,
         condensed: verticalLayout,
       ),
@@ -71,7 +75,7 @@ class Appointments extends StatelessWidget {
         title: "Counselling Session",
         subtitle: "Dr. Gregory House",
         place: 'LMC Optometry & Eye Care',
-        cta: "Check in",
+        cta: const Text("Check in"),
         image: Image.asset('images/house.png').image,
         condensed: verticalLayout,
       ),

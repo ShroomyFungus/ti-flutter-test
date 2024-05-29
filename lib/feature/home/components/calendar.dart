@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class Calendar extends StatelessWidget {
   const Calendar({
-    Key? key,
+    super.key,
     required this.month,
     required this.day,
     this.size,
-  }) : super(key: key);
+  });
 
   final Size? size;
   final String month;

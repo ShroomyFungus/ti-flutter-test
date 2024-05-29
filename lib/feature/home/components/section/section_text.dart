@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SectionText extends StatelessWidget {
-  const SectionText({Key? key, required this.message}) : super(key: key);
+  const SectionText({super.key, required this.message});
 
   final String message;
 

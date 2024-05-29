@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SectionColumn extends StatelessWidget {
-  const SectionColumn({Key? key, required this.children}) : super(key: key);
+  const SectionColumn({super.key, required this.children});
 
   final List<Widget> children;
 

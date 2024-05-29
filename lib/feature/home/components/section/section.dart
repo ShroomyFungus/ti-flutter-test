@@ -2,12 +2,14 @@ import 'package:chrconnecthpdraft/feature/app/extension/context.dart';
 import 'package:flutter/material.dart';
 
 class Section extends StatelessWidget {
+  final List<FocusNode>? focusNodes;
   const Section({
-    Key? key,
+    super.key,
+    this.focusNodes,
     this.name,
     this.child,
     this.showViewAll = false,
-  }) : super(key: key);
+  });
 
   final String? name;
   final Widget? child;
@@ -29,13 +31,16 @@ class Section extends StatelessWidget {
                 ),
                 const Spacer(),
                 if (showViewAll)
-                  Text(
-                    context.localizations.view_all,
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.w400,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
+                  Focus(
+                    focusNode: focusNodes?[4],
+                    child: Text(
+                      context.localizations.view_all,
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            decoration: TextDecoration.underline,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                    ),
                   ),
               ],
             ),

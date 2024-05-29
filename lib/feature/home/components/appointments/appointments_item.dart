@@ -5,25 +5,25 @@ import 'package:intl/intl.dart';
 
 class AppointmentsItem extends StatelessWidget {
   const AppointmentsItem({
-    Key? key,
+    super.key,
     required this.date,
     required this.image,
     this.duration = Duration.zero,
     this.title = '',
     this.subtitle = '',
     this.place = '',
-    this.cta = '',
+    this.cta = const Text(''),
     this.calendarSize = const Size(64, 64),
     this.imageRadius = 12,
     this.condensed = false,
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;
   final DateTime date;
   final Duration duration;
   final String place;
-  final String cta;
+  final Widget cta;
   final ImageProvider image;
   final double imageRadius;
   final Size calendarSize;
@@ -112,11 +112,7 @@ class AppointmentsItem extends StatelessWidget {
               const SizedBox(width: 16),
               TextButton(
                 onPressed: () {},
-                child: Text(
-                  cta,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                ),
+                child: cta,
               ),
               const SizedBox(width: 16),
             ],
@@ -229,10 +225,7 @@ class AppointmentsItem extends StatelessWidget {
                     ),
               ),
               const Spacer(),
-              TextButton(
-                onPressed: () {},
-                child: Text(cta),
-              ),
+              TextButton(onPressed: () {}, child: cta),
               const SizedBox(width: 16),
             ],
           ),

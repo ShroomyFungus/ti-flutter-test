@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class Welcoming extends StatelessWidget {
   const Welcoming({
-    Key? key,
+    super.key,
     required this.state,
     required this.name,
-  }) : super(key: key);
+  });
 
   final WelcomingStates state;
   final String name;
